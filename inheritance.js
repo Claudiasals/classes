@@ -1,3 +1,12 @@
+/* ---- INHERITANCE
+
+È un concetto della programmazione orientata agli oggetti (OOP) 
+che permette a una classe (detta figlia o subclass) di riutilizzare proprietà 
+e metodi di un’altra classe (detta genitore o superclass).
+In pratica: invece di riscrivere codice uguale in più classi, 
+erediti da una classe base e aggiungi solo ciò che serve.
+*/
+
 class Dog {
 
     constructor(razza, peso) {
