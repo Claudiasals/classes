@@ -23,11 +23,12 @@ dog2.speak();
 
 class albinoDog extends Dog {
     constructor(razza, peso, età) {
-        super(razza, peso); // Chiamo il costruttore della classe Dog con razza e peso
+        super(razza, peso);  // super: richiama il costruttore della superclasse Dog per inizializzare razza e peso
         this.età = età; // aggiungo una nuova proprietà specifica di albinoDog
     }
 
-    speak() { //creiamo la funzione speak per non dover riscrivere il codice da stampare
+    speak() { //creiamo la funzione speak per non dover riscrivere il codice da stampare. 
+    // override: riscrive il metodo speak() della superclasse (se presente) con un comportamento specifico
         console.log("Descrizione paziente: " + this.razza + ", " + this.peso + " kg" + ", " + this.età + " anni.");
     }
 }
