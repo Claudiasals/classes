@@ -1,4 +1,8 @@
-// ---- CLASSES and PROTOTYPE
+/* ---- CLASSES and PROTOTYPE ---- */
+
+// --- CLASSES 
+// Una classe è come un modello per creare oggetti che erediteranno i metodi e le proprietà della classe alla quale appartengono. 
+// La classe "madre" si chiama SUPERCLASSE.
 
 /*Convenzione dei nomi delle classi: le classi in JavaScript di solito iniziano con la lettera maiuscola.
 Questo aiuta a distinguere subito una classe da un oggetto o una variabile. */
@@ -118,7 +122,7 @@ Se il metodo non esistesse in nessun prototype della catena ruisulterà come err
 
 function Animal() {}
 
-// Aggiungo il metodo parla al prototype di Animale
+// Aggiungo il metodo "parla" al prototype di Animale
 Animal.prototype.parla = function() {
   console.log("Verso");
 };
