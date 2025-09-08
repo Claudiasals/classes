@@ -1,4 +1,4 @@
-/* ---- INHERITANCE (EXTENDS)
+/* ---- INHERITANCE 
 
 È un concetto della programmazione orientata agli oggetti (OOP) 
 che permette a una classe (detta figlia o subclass) di riutilizzare proprietà 
