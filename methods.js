@@ -1,4 +1,8 @@
 // --- INSTANCE AND STATIC METHODS
+/* 
+STATIC METHOD: I metodi e gli attributi(o proprietà, o campi) STATICI si riferiscono alll'intera classe, saranno uguali in tutti gli oggetto della classe. 
+INSTANCE METHOD: I metodi o attributi di ISTANZA (instance, o oggetto) si riferiscono unicamente all'oggetto in questione.
+*/ 
 
 class Cane {
     constructor(nome) {
@@ -33,7 +37,7 @@ console.log(Cane.confronta(fido, pluto)); // false
 // ma vuoi anche una funzione che calcoli l’IVA indipendentemente dal prodotto creato;
 // quindi non devi applicarla su un oggetto in particolare, ma su tutti gli oggetti.
 
-class prodotto {
+class Prodotto {
     constructor(nome, prezzo) {
         this.nome = nome;
         this.prezzo = prezzo;
@@ -41,7 +45,7 @@ class prodotto {
 
     // Instance method
     prezzoFinale() {
-        return this.prezzo + prodotto.calcolaIVA(this.prezzo);
+        return this.prezzo + Prodotto.calcolaIVA(this.prezzo);
     }
 
     // Static method → funzione “di utilità”
@@ -50,7 +54,7 @@ class prodotto {
     }
 }
 
-const scarpe = new prodotto("Scarpe", 50);
+const scarpe = new Prodotto("Scarpe", 50);
 
 console.log("Prezzo delle scarpe incluso di Iva: ", scarpe.prezzoFinale()); // 61
 // abbiamo utilizzato l'instance method per calcolare il "prezzoFinale" di "scarpe"
@@ -63,9 +67,9 @@ console.log("Iva sui prodotti a 100 euro: ", prodotto.calcolaIVA(100)); // 22 (p
 
 // immaginiamo di avere un catalogo e calcolare i prodotti di tutti i prezzi
 const catalogo = [
-    new prodotto("calze", 5),
-    new prodotto("maglie", 30),
-    new prodotto("jeans", 40),
+    new Prodotto("calze", 5),
+    new Prodotto("maglie", 30),
+    new Prodotto("jeans", 40),
 ];
 
 // calcoliamo l'iva di tutti i prodotti 

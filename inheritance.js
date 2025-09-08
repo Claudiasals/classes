@@ -1,4 +1,4 @@
-/* ---- INHERITANCE
+/* ---- INHERITANCE (EXTENDS)
 
 È un concetto della programmazione orientata agli oggetti (OOP) 
 che permette a una classe (detta figlia o subclass) di riutilizzare proprietà 
@@ -30,7 +30,7 @@ dog2.speak();
 
 // --- EXTENDS
 
-class albinoDog extends Dog {
+class AlbinoDog extends Dog {
     constructor(razza, peso, età) {
         super(razza, peso);  // super: richiama il costruttore della superclasse Dog per inizializzare razza e peso
         this.età = età; // aggiungo una nuova proprietà specifica di albinoDog
@@ -42,7 +42,7 @@ class albinoDog extends Dog {
     }
 }
 
-let dogA = new albinoDog("BullMastiff", 54, 8);
+let dogA = new AlbinoDog("BullMastiff", 54, 8);
 console.log(dogA)
 
 dogA.speak();
