@@ -1,17 +1,15 @@
 /* I "campi" sono gli attributi degli oggetti.
 
-Nella programmazione orientata agli oggetti, le proprietà ed i metodi sono divisi in due gruppi:
+In JavaScript, esistono due tipi di campi per un oggetto: proprietà e metodi, e questi possono essere pubblici o privati:
 
-1) Interfaccia interna – metodi e proprietà, accessibili dagli altri metodi della classe, ma non dall’esterno.
-2) Interfaccia esterna – metodi e proprietà, accessibili anche dall’esterno della classe.
-
-In JavaScript, esistono due tipi di campi per un oggetto (proprietà e metodi):
-
-1) Pubblici: accessibili ovunque. Questi ne definiscono l’interfaccia esterna. Finora abbiamo sempre utilizzato proprietà e metodi pubblici.
+1) Pubblici: accessibili ovunque. Questi ne definiscono l’interfaccia esterna. 
+Accessibili dagli utenti. Utilizzabili dagli utenti.
 2) Privati: accessibili solamente dall’interno della classe. Questi ne definiscono l’interfaccia interna.
+Sono quei metodi che servono alla logica interna e che l’utente non deve poter chiamare direttamente. 
+I metodi e gli attributi privati sono incapsulati all'interno della classe per non essere reperibili direttamente dall'utente.
 
 
-Creare due livelli di metodi, uno privato e uno ppubblico, ci permette di proteggere alcuni dati 
+Creare due livelli di metodi, uno privato e uno pubblico, ci permette di proteggere alcuni dati 
 a cui non vogliamo dare l'accesso diretto.
 I metodi e gli attributi che devono restare privati li contrassegneremo da un cancelletto (#).
 
@@ -78,3 +76,4 @@ Questo è l’incapsulamento:
 - Mostri solo ciò che serve all’esterno (metodi pubblici)
 
 */
+
