@@ -79,7 +79,9 @@ class MiaLista extends Array { //creiamo nuova classe (MiaLista) che eredita tut
 
 const lista = new MiaLista(10, 20, 30); 
 console.log(lista.primo()); // 10 
-console.log(lista.length);  // 3 (eredita il comportamento dell’array)
+console.log(lista.length);  // 3 (eredita il comportamento di default dell’array), 
+//LENGTH è una proprietà predefinita degli array in JavaScript. 
+//Questo significa che ogni array ha una proprietà length che contiene il numero di elementi presenti nell’array.
 
 /*
 Stiamo usando EXTENDS solo che la classe che estendiamo non è una nostra classe (come `Animale`), 
