@@ -1,4 +1,4 @@
-// ---- CLASSES 
+// ---- CLASSES and PROTOTYPE
 
 // SINTASSI BASE
 /*
@@ -67,24 +67,73 @@ sayHi: ƒ sayHi()
 */ 
 
 
-// ---- COS'È IL "[[Prototype]]"" ?
+// ---- COS'È IL PROTORYPE ("[[Prototype]]: Object") ?
 
-/* In JavaScript, ogni oggetto ha un prototipo. Il constructor salva tutti i metodi (come sayHi) all’interno 
-del User.prototype . Quindi quando chiameremo da un oggetto un metodo come con user1.sayHi, 
-il metodo verrà preso dal prototype dove è salvato.
-Il prototipo è praticamente un altro oggetto da cui l’oggetto eredita proprietà e metodi.
-Questo meccanismo si chiama prototypal inheritance (ereditarietà basata sui prototipi). 
+/* In JavaScript, il prototype è una proprietà speciale delle funzioni costruttrici (constructor) e delle classi, 
+che serve per far ereditare agli oggetti creati con quella funzione (sotto quella specifica classe) le proprietà e i metodi. 
+Il constructor salva tutti i metodi (come sayHi) all’interno del User.prototype. 
+Quindi quando chiameremo da un oggetto un metodo, come abbiamo fatto con user1.sayHi, il metodo verrà preso dal prototype dove è salvato.
+Il prototype è un altro oggetto da cui l’oggetto eredita proprietà e metodi.
+
+Questo meccanismo si chiama "prototypal inheritance" (ereditarietà basata sui prototipi),
+il metodo di scrivere IL codice con (funzione + prototype) è in disuso, si usava prima dell'esistenza delle classi (arrivate nel 2015 con ES6), 
+ora quindi si utilizzano: class, extend, super; perché hanno una sintassi più chiara. Comunque il motore Javascript del browser traduce le 
+classi in una funzione costruttrice (funzione + prototype), mettendo i metodi dentro al prototype e restituendo la "prototype chain"
+che userà quando istanzerà gli oggetti (cioè quando creiamo oggetti nuovi con "new"). 
+
+La "prototype chain" è la catena di oggetti che conduce il motore JS fino all' "Object.prototype" (il prototypo base di tutti gli oggetti).
+
 Il termine [[Prototype]] è come lo mostra la console, ma in codice puoi accedervi con Object.getPrototypeOf(user1).
 */
 
-// una classe è una funzione
-alert(typeof User); // function
+// --- ESEMPIO PER COMPRENDERE IL CONCETTO DI PROTOTYPE
 
-// ...o, più precisamente, il costruttore
-alert(User === User.prototype.constructor); // true
+class Animale {
+  parla() {
+    console.log("Verso");
+  }
+}
 
-// restituisce le funzioni all'interno del prototype
-alert(Object.getOwnPropertyNames(User.prototype)); // constructor, sayHi
+class Cane extends Animale {
+  abbaia() {
+    console.log("Bau!");
+  }
+}
 
+const fido = new Cane();
+fido.abbaia(); // "Bau!"
+fido.parla();  // "Verso"
 
+/*
+"fido.abbaia()" : JS trova il metodo direttamente nell’oggetto fido o nel suo prototype (Cane.prototype).
+"fido.parla()" : non è in Cane.prototype, quindi JS sale al prototype di Cane, cioè Animale.prototype, e lo trova lì.
+Se il metodo non esistesse in nessun prototype della catena ruisulterà come errore undefined.
+ */
 
+// LO STESSO ESEMPIO SCRITTO CON IL METODO PROTOTYPE INHERANCE (FUNZIONE + PROTOTYPE)
+// Funzione costruttrice per Animale
+
+function Animal() {}
+
+// Aggiungo il metodo parla al prototype di Animale
+Animal.prototype.parla = function() {
+  console.log("Verso");
+};
+
+// Funzione costruttrice per Cane
+function Dog() {}
+
+// Collegamento del prototype (inheritance)
+Dog.prototype = Object.create(Animal.prototype); // Cane eredita da Animale
+Dog.prototype.constructor = Cane; // Corregge il costruttore
+
+// Aggiungo il metodo abbaia al prototype di Cane
+Cane.prototype.abbaia = function() {
+  console.log("Bau!");
+};
+
+// Creo l’istanza
+const briciola = new Cane();
+
+fido.abbaia(); // "Bau!"
+fido.parla();  // "Verso"
