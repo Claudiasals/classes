@@ -28,9 +28,9 @@ const arr = [1, 2, 3];
 
 /* JavaScript crea un oggetto con:
 
-Proprietà → 0: 1, 1: 2, 2: 3, length: 3
+Proprietà --> 0: 1, 1: 2, 2: 3, length: 3
 
-Prototype → collegato a Array.prototype, che contiene tutti i metodi sopra.
+Prototype --> collegato a Array.prototype, che contiene tutti i metodi sopra.
 
 Dunque gli array funzionano grazie a una combinazione di 
 proprietà specifiche: (length, indici) + metodi definiti in Array.prototype.
@@ -44,10 +44,9 @@ arr.push(4);
 
 /*
 1) JavaScript guarda se arr ha un metodo push come proprietà --> NO
-
 2) Sale nella prototype chain e in Array.prototype --> trova il metodo push().
-
 3) Lo esegue e modifica arr.
+-Il metodo push() serve ad aggiungere uno o più elementi alla fine di un array.
 
 
 
@@ -57,13 +56,10 @@ arr.toString();
 
 /*
 1) Cerca in arr --> NO
-
 2) Cerca in Array.prototype --> NO
-
 3) Va in Object.prototype --> trova toString().
-
 4) Lo esegue.
-
+-Il metodo toString() serve a convertire un array (o qualsiasi oggetto) in una stringa.
 
 Il metodo "toString()"" nasce come metodo di tutti gli oggetti, cioè fa parte di Object.prototype.
 Gli array ereditano tutti i metodi di Object.prototype, quindi anche toString().
@@ -77,7 +73,7 @@ Quindi possiamo creare una classe che estende Array:
 */
 class MiaLista extends Array { //creiamo nuova classe (MiaLista) che eredita tutto ciò che ha Array (metodi come push, map, length, ecc.).
   primo() { //Ma quella classe è vuota finché non aggiungiamo qualcosa: aggiuungiamo il metodo primo() 
-    return this[0]; // gli chiediamo: restituisci il primo elemento dell'array (quello con indice 0)
+    return this[0]; // gli chiediamo: restituisci l'elemento con indice 0 dell'array (il primo elemento)
   }
 }
 
@@ -97,8 +93,9 @@ e possiamo creare infiniti metodi come primo, sempre scritti all'interno della c
 
 --- IN CONCLUSIONE:
 
-La differenza tra l'utilizzo di extends nelle classi e nell'array è che invece di ereditare da una classe che abbiamo creato noi, 
-ereditiamo da una "class built-in" di JS.
+La differenza tra l'utilizzo di extends nelle classi e nell'array (o con qualsiasi altro built-in di JS) 
+è che invece di ereditare da una classe che abbiamo creato noi, ereditiamo da una "class built-in" di JS
+con metodi e attributi di default forniti dal motore JavaScript.
 
 
 
@@ -138,4 +135,4 @@ ArrayBuffer, DataView, TypedArray (es. Uint8Array) --> per dati binari.
 Math --> metodi matematici (non è propriamente una classe, ma simile).
 JSON --> parsing/stringifying JSON.
 Proxy --> intercettare operazioni su oggetti.
-Reflect --> operazioni su oggetti.
+Reflect --> operazioni su oggetti. */
