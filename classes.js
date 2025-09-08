@@ -1,5 +1,8 @@
 // ---- CLASSES and PROTOTYPE
 
+/*Convenzione dei nomi delle classi: le classi in JavaScript di solito iniziano con la lettera maiuscola.
+Questo aiuta a distinguere subito una classe da un oggetto o una variabile. */
+
 // SINTASSI BASE
 /*
 class MyClass {

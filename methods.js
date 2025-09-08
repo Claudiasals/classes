@@ -29,9 +29,9 @@ console.log(Cane.confronta(fido, pluto)); // false
 
 // --- ESEMPIO PRATICO IN CONTESTO REALE:
 
-// Immaginiamo un’app/sito e-commerce: hai una classe Prodotto che rappresenta i singoli articoli.
-// Ma vuoi anche una funzione che calcoli l’IVA indipendentemente dal prodotto creato 
-// (quindi non su un oggetto in particolare, ma su tutti).
+// Immaginiamo un’app/sito e-commerce: hai una classe Prodotto che rappresenta i singoli articoli,
+// ma vuoi anche una funzione che calcoli l’IVA indipendentemente dal prodotto creato;
+// quindi non devi applicarla su un oggetto in particolare, ma su tutti gli oggetti.
 
 class prodotto {
     constructor(nome, prezzo) {
@@ -56,7 +56,7 @@ console.log("Prezzo delle scarpe incluso di Iva: ", scarpe.prezzoFinale()); // 6
 // abbiamo utilizzato l'instance method per calcolare il "prezzoFinale" di "scarpe"
 console.log("Iva sui prodotti a 100 euro: ", prodotto.calcolaIVA(100)); // 22 (puoi usarlo anche senza oggetto)
 
-// Qui calcolaIVA è statico perché non dipende da un prodotto in particolare, 
+// Qui calcolaIVA è "STATICO" perché non dipende da un prodotto in particolare, 
 // ma è una regola generale applicabile a tutti. 
 // Applichiamo la funzione "calcolaIVA" alla classe "prodotto" inserendo noi il valore di partenza (100)
 
